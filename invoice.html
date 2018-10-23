@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <title>The MYCE.WORLD Widget</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="style.css" rel="stylesheet" type="text/css">
+
+  <style>
+
+  
+  </style>
+
+</head>
+
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+  <!-- Navbar OPCIONAL -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <p class="text-center">Invoice</p>
+    </div>
+  </nav>
+
+  <!-- CONTENIDO DE CADA SUBMENÚ -->
+  <div class="container-fluid">            
+            
+      <div class="col-12 text-center">
+        
+        <!-- Aquí va el contenido dinámico -->
+        <!-- ===================================== -->
+            
+              
+                <div class="container text-center" id="datatable-responsive_wrapper">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div>
+                        <label>Show entries
+                          <select name="datatable-responsive_length" aria-controls="datatable-responsive" class="form-control input-sm">
+                          <option value="10">10</option>
+                          <option value="25">25</option>
+                          <option value="50">50</option>
+                          <option value="100">100</option>
+                          </select>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div id="datatable-responsive_filter" class="dataTables_filter">
+                        <label>Search:
+                          <input type="search" class="form-control input-sm" placeholder="" aria-controls="datatable-responsive">
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap dataTable no-footer dtr-inline collapsed" cellspacing="0" width="100%" role="grid" aria-describedby="datatable-responsive_info" style="width: 100%;">
+                        <thead>
+                          <tr role="row">
+                            <th class="sorting_asc" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" style="width: 15px;" aria-sort="ascending" aria-label="ID: activate to sort column descending">ID</th>
+                            <th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" style="width: 21px;" aria-label="Pay: activate to sort column ascending">Pay</th>
+                            <th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" style="width: 32px;" aria-label="[coin]: activate to sort column ascending">[coin]</th>
+                            <th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" style="width: 35px;" aria-label="Status: activate to sort column ascending">Status</th>
+                            <th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" style="width: 40px;" aria-label="Renew: activate to sort column ascending">Renew</th>
+                            <th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" style="width: 0px; display: none;" aria-label="Ip: activate to sort column ascending">Ip</th>
+                            <th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" style="width: 0px; display: none;" aria-label="Key: activate to sort column ascending">Key</th>
+                          </tr>
+                        </thead>
+                      <tbody>
+                        <tr class="odd"><td valign="top" colspan="5" class="dataTables_empty">No data available in table</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-5">
+                    <div class="dataTables_info" id="datatable-responsive_info" role="status" aria-live="polite">Showing 0 to 0 of 0 entries
+                    </div>
+                  </div>
+                  <div class="col-7">
+                    <div class="dataTables_paginate paging_simple_numbers" id="datatable-responsive_paginate">
+                      <ul class="pagination">
+                        <li class="paginate_button previous disabled" id="datatable-responsive_previous"><a href="#" aria-controls="datatable-responsive" data-dt-idx="0" tabindex="0">Previous</a>
+                        </li>
+                        <li class="paginate_button next disabled" id="datatable-responsive_next"><a href="#" aria-controls="datatable-responsive" data-dt-idx="1" tabindex="0">Next</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <button class="btn btn-warning btn-block" onclick="goBack()">Back</button>
+              
+            
+          
+        <!-- ===================================== -->
+
+      </div>    
+    
+  </div>
+
+
+  <!-- Footer que funciona como menú -->
+  <footer class="container-fluid text-center">
+    <div class="panel-footer">
+      <button class="btn btn-lg">Dashboard</button>
+      <button class="btn btn-lg">Hosting</button>
+    </div>
+  </footer>
+
+
+
+  <script>
+  $(document).ready(function(){
+    // Add smooth scrolling to all links in navbar + footer link
+    $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+      // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
+        // Prevent default anchor click behavior
+        event.preventDefault();
+
+        // Store hash
+        var hash = this.hash;
+
+        // Using jQuery's animate() method to add smooth page scroll
+        // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 900, function(){
+     
+          // Add hash (#) to URL when done scrolling (default click behavior)
+          window.location.hash = hash;
+        });
+      } // End if
+    });
+    
+    $(window).scroll(function() {
+      $(".slideanim").each(function(){
+        var pos = $(this).offset().top;
+
+        var winTop = $(window).scrollTop();
+          if (pos < winTop + 600) {
+            $(this).addClass("slide");
+          }
+      });
+    });
+  })
+  </script>
+
+</body>
+</html>
